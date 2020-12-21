@@ -78,7 +78,7 @@ spec:
         hostPath:
           path: /home/user/.openttd
 
----                                                                                                                                                                                                                                                                                                                       apiVersion: v1                                                                                                                                                                                                                                                                                                               kind: Service
+---
 metadata:
   name: openttd
   labels:
