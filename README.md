@@ -1,5 +1,7 @@
-![Docker Image CI](https://github.com/bateau84/openttd/workflows/Docker%20Image%20CI/badge.svg?branch=master)  
-[![dockeri.co](https://dockeri.co/image/bateau/openttd)](https://hub.docker.com/r/bateau/openttd)
+## Credit ##
+
+Forked from bateau84/openttd. Excellent work and thank you.
+
 ## Usage ##
 
 ### File locations ###
