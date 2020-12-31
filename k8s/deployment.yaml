@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: openttd
+  name: openttd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: openttd
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: openttd
+    spec:
+      containers:
+      - image: bateau/openttd:latest
+        name: openttd-image
+        ports:
+        - name: openttd-tcp
+          containerPort: 3979
+          protocol: TCP
+        - name: openttd-udp
+          containerPort: 3979
+          protocol: UDP
