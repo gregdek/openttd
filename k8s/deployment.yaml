@@ -15,8 +15,13 @@ spec:
         app.kubernetes.io/name: openttd
     spec:
       containers:
-      - image: bateau/openttd:latest
-        name: openttd-image
+      - image: gdekoenigsberg/showdown-openttd:latest
+        name: showdown-openttd-image
+        env:
+        - name: DEBUG
+          value: "5"
+        - name: loadgame
+          value: "false"
         ports:
         - name: openttd-tcp
           containerPort: 3979
