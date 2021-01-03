@@ -1,0 +1,5 @@
+echo "Starting server"
+script openttd.log
+net_frame_freq = 1
+#name "gregdek test server"
+newgame
