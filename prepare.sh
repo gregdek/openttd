@@ -40,4 +40,4 @@ chmod +x /openttd.sh
 
 ## Copy all of the files from the original Ubuntu host to the right
 ## places here
-cp -R /home/openttd/ubuntu-host /usr/share/games/openttd
+cp -R /home/openttd/ubuntu-host/* /usr/share/games/openttd
