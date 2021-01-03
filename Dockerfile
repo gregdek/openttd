@@ -8,8 +8,8 @@ ARG OPENGFX_VERSION="0.6.0"
 ADD prepare.sh /tmp/prepare.sh
 ADD cleanup.sh /tmp/cleanup.sh
 ADD buildconfig /tmp/buildconfig
-ADD content_download_minimal.tar /home/openttd/content_download_minimal.tar
 ADD simple-scenario.scn /home/openttd/simple-scenario.scn
+ADD ubuntu-host /home/openttd/ubuntu-host
 ADD --chown=1000:1000 openttd.sh /openttd.sh
 
 RUN chmod +x /tmp/prepare.sh /tmp/cleanup.sh /openttd.sh
