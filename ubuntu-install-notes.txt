@@ -1,0 +1,110 @@
+UBUNTU INSTALL NOTES
+
+This is how I got a full Ubuntu server up and running, a lot of which
+I copied over into this project. This exists for now so I can find old
+notes if I need them.
+
+1. Install the latest Ubuntu image.
+2. sudo snap install openttd
+3. Edit ~/snap/openttd/current/.openttd/openttd.cfg, set:
+    server_password = 123456
+    rcon_password = 123456
+    admin_password = 123456
+4. Maybe install golang, or not!
+   sudo apt-get install golang (so we can run go scripts for admin)
+   go get github.com/ropenttd/gopenttd
+   go get golang.org/x/text/language
+   go get github.com/skybon/goutil
+   go get github.com/sirupsen/logrus
+5. download openttd_content_download.tar from laptop/somewhere to ~/
+6. tar -xvf openttd_content_download.tar
+7. cp -r ~/content_download ~/snap/openttd/current/.openttd/
+8. mkdir ~/snap/openttd/current/.openttd/scripts
+9. vi ~/snap/openttd/current/.openttd/scripts/on_dedicated.scr
+   echo "Starting server"
+   script openttd.log
+   net_frame_freq = 1
+   newgame  
+10. vi ~/snap/openttd/current/.openttd/scripts/game_start.scr
+   startai
+   startai
+11. vi ~/snap/openttd/current/.openttd/openttd.cfg
+  ai_developer_tools = true
+  [ai_players]
+  AIAI = start_date=1
+  AdmiralAI = start_date=1
+  [dificulty]
+  max_no_competitors = 2
+12. openttd -D -d script=5 -f
+
+EDIT CONFIGURATION:
+vi ~/snap/openttd/current/.openttd/openttd.cfg
+
+CONFIG EDITS:
+ai_developer_tools = true
+[ai_players] 
+AIAI = start_date=1
+AdmiralAI = start_date=1
+[dificulty]
+max_no_competitors = 2
+
+CURRENT SSH HOST:
+ssh -i "~/.ssh/gregdek-isengard-001.pem" ubuntu@ec2-3-15-234-193.us-east-2.compute.amazonaws.com
+
+RUN:
+openttd -D -d script=5 -f
+
+RUN WITH VIDEO DRIVERS:
+openttd -v sdl -b 32bpp-simple -D -d script=5 -f
+
+RESTART:
+pkill openttd; rm ~/snap/openttd/current/.openttd/openttd.log; openttd -v sdl -b 32bpp-simple -D -d 9 -f
+
+EDIT SCOREKEEPER SCRIPT:
+vi ~/snap/openttd/current/.openttd/ai/scorekeeper/main.nut
+
+EDIT LOG:
+vi ~/snap/openttd/current/.openttd/openttd.log
+
+SEE SCOREKEEPER LOG:
+tail -f ~/snap/openttd/current/.openttd/openttd.log | grep "score"
+
+EDIT CRASH LOG:
+vi ~/snap/openttd/current/.openttd/crash.log
+
+EDIT SCRIPTS:
+vi ~/snap/openttd/current/.openttd/scripts/on_dedicated.scr
+vi ~/snap/openttd/current/.openttd/scripts/game_start.scr
+
+AI DEBUGGING:
+https://wiki.openttd.org/en/Development/Script/Need%20To%20Know
+
+
+NOTES/LINKS
+===========
+SCRIPTING CONSOLE COMMANDS:
+* Console commands: https://wiki.openttd.org/en/Manual/Console
+* https://wiki.openttd.org/en/Manual/Running%20Startup%20Scripts
+* https://wiki.openttd.org/en/Archive/Manual/Scripts
+* install content: https://wiki.openttd.org/en/Manual/Dedicated%20server#installing-online-content
+
+MAYBE JUNK?
+===========
+PYTHON3-OPENTTD: Nope
+git clone https://github.com/horazont/python3-openttd.git
+cd python3-openttd
+python3 setup.py build
+(seems shitty)
+python3 setup.py install fails!
+
+LIBOTTDADMIN2:
+git clone https://github.com/Xaroth/libottdadmin2.git
+cd libottdadmin2/
+python3 setup.py build
+sudo python3 setup.py install
+cd examples/
+python3 asyncio_basic_client.py --password='123456' --port='3977' -- works!
+python3 syncio_basic_client.py --password='123456' --port='3977' -- works!
+
+READ:
+go run github.com/ropenttd/gopenttd/cmd/openttd_scrape
