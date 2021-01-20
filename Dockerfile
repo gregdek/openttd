@@ -18,6 +18,12 @@ RUN /tmp/prepare.sh \
 
 VOLUME /home/openttd/.openttd
 
+# BEGIN POSSIBLY BROKEN STUFF
+ADD content.sh /tmp/content.sh
+RUN chmod +x /tmp/content.sh
+RUN /tmp/content.sh
+# END POSSIBLY BROKEN STUFF
+
 EXPOSE 3979/tcp
 EXPOSE 3979/udp
 
