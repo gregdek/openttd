@@ -37,7 +37,3 @@ addgroup openttd users
 
 ## Set entrypoint script to right user
 chmod +x /openttd.sh
-
-## Copy all of the files from the original Ubuntu host to the right
-## places here
-cp -R /home/openttd/content/* /usr/share/games/openttd
