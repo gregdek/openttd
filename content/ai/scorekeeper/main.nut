@@ -33,8 +33,8 @@ function Scorekeeper::Start()
     local CL = 1  // Skip the scorekeeper, who should always be player 0
     while (AICompany.ResolveCompanyID(CL)>-1)
     {
-        AILog.Info("[score][cash]["+CL+"]"+AICompany.GetBankBalance(CL))
-        AILog.Info("[score][qval]["+CL+"]"+AICompany.GetQuarterlyCompanyValue(CL,0))
+        AILog.Info("[score][_cash]["+CL+"]"+AICompany.GetBankBalance(CL))
+        AILog.Info("[score][_qval]["+CL+"]"+AICompany.GetQuarterlyCompanyValue(CL,0))
         CL=CL+1
     }
     // CURRENT TOWN INFO
