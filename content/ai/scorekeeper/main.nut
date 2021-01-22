@@ -29,14 +29,24 @@ function Scorekeeper::Start()
     // AILog.Info("[score] Resolve 3: " + AICompany.ResolveCompanyID(3))
     // AILog.Info("[score] Resolve 4: " + AICompany.ResolveCompanyID(4))
     // for each valid company that doesn't resolve to -1, get
-    // current financial info
+    // CURRENT PLAYER INFO
     local CL = 1  // Skip the scorekeeper, who should always be player 0
     while (AICompany.ResolveCompanyID(CL)>-1)
     {
         AILog.Info("[score][cash]["+CL+"]"+AICompany.GetBankBalance(CL))
         AILog.Info("[score][qval]["+CL+"]"+AICompany.GetQuarterlyCompanyValue(CL,0))
         CL=CL+1
-    } 
+    }
+    // CURRENT TOWN INFO
+    // How to get and work with AITownList? 
+    //   https://wiki.openttd.org/en/Development/Script/Lists
+    // How many towns? AITown.GetTownCount()
+    // Is a town valid? AITown.IsValidTown(townid)
+    // AITown.GetName(townid)
+    // AITown.GetPopulation(townid)
+    // AITown.GetHouseCount(townid)
+    // AITown.GetGrowthRate(townid)
+    // See you in 50 ticks!
     this.Sleep(50);
   }
 }

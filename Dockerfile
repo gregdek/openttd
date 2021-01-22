@@ -4,11 +4,11 @@ MAINTAINER Greg DeKoenigsberg<greg.dekoenigsberg@gmail.com>
 ARG OPENTTD_VERSION="1.10.3"
 ARG OPENGFX_VERSION="0.6.0"
 
+ADD content /home/openttd/content
 ADD prepare.sh /tmp/prepare.sh
 ADD cleanup.sh /tmp/cleanup.sh
 ADD buildconfig /tmp/buildconfig
 ADD simple-scenario.scn /home/openttd/simple-scenario.scn
-ADD ubuntu-host /home/openttd/ubuntu-host
 ADD --chown=1000:1000 openttd.sh /openttd.sh
 
 RUN chmod +x /tmp/prepare.sh /tmp/cleanup.sh /openttd.sh
