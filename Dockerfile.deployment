@@ -6,7 +6,7 @@ ADD content/content_download /home/openttd/content_download
 ADD content/hotkeys.cfg /home/openttd/hotkeys.cfg
 ADD content/scripts /home/openttd/scripts
 ADD content/openttd.cfg /home/openttd/openttd.cfg
-ADD simple-scenario.scn /home/openttd/simple-scenario.scn
+# ADD simple-scenario.scn /home/openttd/simple-scenario.scn
 
 VOLUME /home/openttd/.openttd
 
