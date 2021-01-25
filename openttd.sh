@@ -27,5 +27,7 @@ User Home:   $(grep ${USER} /etc/passwd | cut -d':' -f6)
 -----------------------------------
 "
 
-su -l openttd -c "/usr/games/openttd -D -g scenario/tourneymap.sav -x -d ${DEBUG}"
+# su -l openttd -c "/usr/games/openttd -D -g/home/openttd/scenario/autosave0.sav -x -d ${DEBUG}"
+su -l openttd -c "/usr/games/openttd -D -g/home/openttd/scenario/simple-scenario.scn -x -d ${DEBUG}"
+# su -l openttd -c "/usr/games/openttd -D -x -d ${DEBUG}"
 

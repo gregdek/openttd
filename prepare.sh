@@ -36,4 +36,5 @@ adduser --disabled-password --uid 1000 --shell /bin/bash --gecos "" openttd
 addgroup openttd users
 
 ## Set entrypoint script to right user
-chmod +x /openttd.sh
+# Note: unnecessary because we do it in second stage deployment?
+# chmod +x /openttd.sh

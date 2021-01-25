@@ -1,10 +1,14 @@
 FROM gdekoenigsberg/showdown-openttd-base:latest
 MAINTAINER Greg DeKoenigsberg<greg.dekoenigsberg@gmail.com>
 
+ADD --chown=1000:1000 openttd.sh /openttd.sh
+RUN chmod +x /openttd.sh
+
 ADD content/ai /home/openttd/ai
 ADD content/content_download /home/openttd/content_download
 ADD content/hotkeys.cfg /home/openttd/hotkeys.cfg
 ADD content/scripts /home/openttd/scripts
+ADD content/scenario /home/openttd/scenario
 ADD content/openttd.cfg /home/openttd/openttd.cfg
 # ADD simple-scenario.scn /home/openttd/simple-scenario.scn
 
